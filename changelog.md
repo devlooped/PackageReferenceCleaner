@@ -1,5 +1,9 @@
 # Changelog
 
+## [v1.0.0](https://github.com/devlooped/PackageReferenceCleaner/tree/v1.0.0) (2023-03-25)
+
+[Full Changelog](https://github.com/devlooped/PackageReferenceCleaner/compare/v1.0.0-rc...v1.0.0)
+
 ## [v1.0.0-rc](https://github.com/devlooped/PackageReferenceCleaner/tree/v1.0.0-rc) (2023-03-25)
 
 [Full Changelog](https://github.com/devlooped/PackageReferenceCleaner/compare/v1.0.0-beta...v1.0.0-rc)
