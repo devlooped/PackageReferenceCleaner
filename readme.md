@@ -56,3 +56,5 @@ attribute), removes all its child nodes and moves (if necessary) the
 
 This is done automatically whenever the analyzer runs, and nothing 
 is saved unless a node was cleaned.
+
+<!-- include https://github.com/devlooped/sponsors/raw/main/footer.md -->
