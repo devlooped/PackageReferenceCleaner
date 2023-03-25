@@ -1,5 +1,4 @@
 ﻿using System.Collections.Immutable;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Xml.Linq;
@@ -29,31 +28,37 @@ class CleanPackageReferences : DiagnosticAnalyzer
             var projectFile = globalOptions.TryGetValue("build_property.MSBuildProjectFullPath", out var fullPath) ?
                         fullPath : null;
 
-            if (!string.IsNullOrEmpty(projectFile) && File.Exists(projectFile))
+            var designTimeBuild = globalOptions.TryGetValue("build_property.DesignTimeBuild", out var dtb) &&
+                bool.TryParse(dtb, out var isDtb) && isDtb ? true : false;
+
+            // Don't clean during DTB since the project file might be edited in-memory and not yet saved.
+            if (designTimeBuild ||
+                string.IsNullOrEmpty(projectFile) ||
+                !File.Exists(projectFile))
+                return;
+
+            var doc = XDocument.Load(projectFile, LoadOptions.PreserveWhitespace);
+            var references = doc.Descendants()
+                .Where(e => e.Name.LocalName == "PackageReference" && e.Elements().Any())
+                .Where(e => e.Attribute("PrivateAssets")?.Value == "all" || e.Element("PrivateAssets")?.Value == "all");
+
+            var cleaned = 0;
+
+            foreach (var item in references)
             {
-                var doc = XDocument.Load(projectFile, LoadOptions.PreserveWhitespace);
-                var references = doc.Descendants()
-                    .Where(e => e.Name.LocalName == "PackageReference" && e.Elements().Any())
-                    .Where(e => e.Attribute("PrivateAssets")?.Value == "all" || e.Element("PrivateAssets")?.Value == "all");
+                var attributes = item.Attributes().ToArray();
+                item.RemoveAll();
+                item.Add(attributes);
+                if (item.Attribute("PrivateAssets") == null)
+                    item.Add(new XAttribute("PrivateAssets", "all"));
 
-                var cleaned = 0;
+                cleaned++;
+            }
 
-                foreach (var item in references)
-                {
-                    var attributes = item.Attributes().ToArray();
-                    item.RemoveAll();
-                    item.Add(attributes);
-                    if (item.Attribute("PrivateAssets") == null)
-                        item.Add(new XAttribute("PrivateAssets", "all"));
-
-                    cleaned++;
-                }
-
-                if (cleaned > 0)
-                {
-                    ctx.ReportDiagnostic(Diagnostic.Create(SupportedDiagnostics[0], null, cleaned));
-                    doc.Save(projectFile);
-                }
+            if (cleaned > 0)
+            {
+                ctx.ReportDiagnostic(Diagnostic.Create(SupportedDiagnostics[0], null, cleaned));
+                doc.Save(projectFile);
             }
         });
     }

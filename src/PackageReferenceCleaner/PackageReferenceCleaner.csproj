@@ -27,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageFile Include="PackageReferenceCleaner.targets" PackagePath="buildTransitive/%(Filename)%(Extension)" />
+    <PackageFile Include="PackageReferenceCleaner.targets" PackagePath="buildTransitive/%(Filename)%(Extension)" Visible="true" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,7 @@
 <Project>
 
   <ItemGroup>
+    <CompilerVisibleProperty Include="DesignTimeBuild" />
     <CompilerVisibleProperty Include="MSBuildProjectFullPath" />
   </ItemGroup>
 
