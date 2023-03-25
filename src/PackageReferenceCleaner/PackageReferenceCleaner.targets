@@ -1,0 +1,11 @@
+<Project>
+
+  <ItemGroup>
+    <CompilerVisibleProperty Include="MSBuildProjectFullPath" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="PackageReferenceCleaner" PrivateAssets="all" PackTransitive="false" Pack="false" />
+  </ItemGroup>
+
+</Project>
