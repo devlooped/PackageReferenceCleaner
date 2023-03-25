@@ -2,11 +2,11 @@
 
 Cleans the following crazy NuGet mess:
 
-![crazy references](assets/crazy.png)
+![crazy references](https://raw.githubusercontent.com/devlooped/PackageReferenceCleaner/main/assets/crazy.png)
 
 into this perfectly clean and 100% equivalent beauty:
 
-![clean references](assets/clean.png)
+![clean references](https://raw.githubusercontent.com/devlooped/PackageReferenceCleaner/main/assets/clean.png)
 
 ## How it works
 
