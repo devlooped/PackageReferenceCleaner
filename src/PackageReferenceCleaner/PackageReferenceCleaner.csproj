@@ -10,6 +10,7 @@
     <DevelopmentDependency>true</DevelopmentDependency>
     <PackOnBuild>true</PackOnBuild>
     <Description>Cleans up PackageReference with PrivateAssets="all" into a one-liner.</Description>
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
