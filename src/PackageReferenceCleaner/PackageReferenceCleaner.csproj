@@ -13,6 +13,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="..\..\readme.md" Link="readme.md" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="NuGetizer" Version="1.0.1" Pack="false" />
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.0.1" Pack="false" />
     <PackageReference Include="Devlooped.SponsorLink" Version="0.10.2" />
