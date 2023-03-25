@@ -7,7 +7,7 @@ namespace PackageReferenceCleaner;
 [DiagnosticAnalyzer(LanguageNames.CSharp, LanguageNames.VisualBasic, LanguageNames.FSharp)]
 class SponsorLinker : SponsorLink
 {
-    public SponsorLinker() : base("devlooped", "ProductReferenceCleaner")
+    public SponsorLinker() : base("devlooped", "PackageReferenceCleaner")
     {
     }
 }
