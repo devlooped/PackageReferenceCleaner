@@ -1,6 +1,7 @@
 ﻿using System.Collections.Immutable;
 using System.IO;
 using System.Linq;
+using System.Xml;
 using System.Xml.Linq;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Diagnostics;
@@ -58,8 +59,21 @@ class CleanPackageReferences : DiagnosticAnalyzer
             if (cleaned > 0)
             {
                 ctx.ReportDiagnostic(Diagnostic.Create(SupportedDiagnostics[0], null, cleaned));
-                doc.Save(projectFile);
+                // Detect whether the file originally had an XML declaration or not.
+                var hasDecl = HasXmlDeclaration(projectFile!);
+                // Save emits the XML declaration, but ToString doesn't.
+                if (hasDecl)
+                    doc.Save(projectFile);
+                else
+                    File.WriteAllText(projectFile, doc.ToString().Trim());
             }
         });
+    }
+
+    static bool HasXmlDeclaration(string projectFile)
+    {
+        using var reader = new StreamReader(projectFile);
+        using var xml = XmlReader.Create(reader);
+        return xml.Read() && xml.NodeType == XmlNodeType.XmlDeclaration;
     }
 }
