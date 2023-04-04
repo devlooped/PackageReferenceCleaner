@@ -1,5 +1,13 @@
 # Changelog
 
+## [v1.0.1](https://github.com/devlooped/PackageReferenceCleaner/tree/v1.0.1) (2023-04-04)
+
+[Full Changelog](https://github.com/devlooped/PackageReferenceCleaner/compare/v1.0.0...v1.0.1)
+
+:sparkles: Implemented enhancements:
+
+- Omit the XML declaration if the file didn't have it [\#5](https://github.com/devlooped/PackageReferenceCleaner/pull/5) (@kzu)
+
 ## [v1.0.0](https://github.com/devlooped/PackageReferenceCleaner/tree/v1.0.0) (2023-03-25)
 
 [Full Changelog](https://github.com/devlooped/PackageReferenceCleaner/compare/v1.0.0-rc...v1.0.0)
