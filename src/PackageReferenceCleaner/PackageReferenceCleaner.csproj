@@ -24,7 +24,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="all" />
-    <PackageReference Include="NuGetizer" Version="1.0.1" Pack="false" />
+    <PackageReference Include="NuGetizer" Version="1.2.4" Pack="false" />
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.0.1" Pack="false" />
     <!--<PackageReference Include="Devlooped.SponsorLink" Version="0.10.2" />-->
   </ItemGroup>
