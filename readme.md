@@ -5,11 +5,11 @@ Cleans the following crazy NuGet package reference mess:
 ```xml
 <ItemGroup>
   <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.3.1" Pack="false" />
-  <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
+  <PackageReference Include="Microsoft.SourceLink.GitHub" Version="10.0.202">
     <PrivateAssets>all</PrivateAssets>
     <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
   </PackageReference>
-  <PackageReference Include="NuGetizer" Version="1.0.1">
+  <PackageReference Include="NuGetizer" Version="1.4.7">
     <PrivateAssets>all</PrivateAssets>
     <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
   </PackageReference>
@@ -37,8 +37,8 @@ Into this perfectly clean and 100% equivalent beauty:
 ```xml
 <ItemGroup>
   <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.3.1" Pack="false" />
-  <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="all" />
-  <PackageReference Include="NuGetizer" Version="1.0.1" PrivateAssets="all" />
+  <PackageReference Include="Microsoft.SourceLink.GitHub" Version="10.0.202" PrivateAssets="all" />
+  <PackageReference Include="NuGetizer" Version="1.4.7" PrivateAssets="all" />
   <PackageReference Include="PackageReferenceCleaner" Version="1.0.0" PrivateAssets="all" />
   <PackageReference Include="PolySharp" Version="1.12.1" PrivateAssets="all" />
   <PackageReference Include="ThisAssembly.AssemblyInfo" Version="1.2.12" PrivateAssets="all" />
