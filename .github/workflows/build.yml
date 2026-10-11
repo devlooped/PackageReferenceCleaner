@@ -68,6 +68,11 @@ jobs:
       - name: ⚙ dotnet
         uses: devlooped/actions-dotnet-env@v1
 
+      - name: ⚙ .NET 10 SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
       - name: 🙏 build
         run: dotnet build -m:1 -bl:build.binlog
 
